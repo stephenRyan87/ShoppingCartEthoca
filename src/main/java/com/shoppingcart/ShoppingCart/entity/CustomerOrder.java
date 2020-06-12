@@ -1,4 +1,4 @@
-package entity;
+package com.shoppingcart.ShoppingCart.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -30,6 +30,22 @@ public class CustomerOrder {
                  .mapToDouble(op -> (op.getPrice() * op.getQuantity())).sum();
 
         return price;
+    }
+
+    public List<OrderProduct> getOrderProducts() {
+        return orderProducts;
+    }
+
+    public void setOrderProducts(List<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
 }

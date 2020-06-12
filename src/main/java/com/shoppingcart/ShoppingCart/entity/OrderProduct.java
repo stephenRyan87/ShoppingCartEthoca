@@ -1,4 +1,4 @@
-package entity;
+package com.shoppingcart.ShoppingCart.entity;
 
 import javax.persistence.Embeddable;
 
