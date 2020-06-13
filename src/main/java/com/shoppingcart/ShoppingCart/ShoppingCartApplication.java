@@ -1,5 +1,7 @@
 package com.shoppingcart.ShoppingCart;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.shoppingcart.ShoppingCart.entity.CustomerOrder;
 import com.shoppingcart.ShoppingCart.entity.OrderProduct;
 import com.shoppingcart.ShoppingCart.entity.Product;
@@ -32,27 +34,17 @@ public class ShoppingCartApplication {
 			repository.save(new Product("Vaacuum", 70.0));
 			repository.save(new Product("spoon", 5.0));
 
-
-			OrderProduct orderProduct1 = new OrderProduct("Vacuum", 70.0, 2);
-			OrderProduct orderProduct2 = new OrderProduct("Washing Machine", 200.0, 1);
-
 			List<OrderProduct> orderProducts = new ArrayList<>();
-			orderProducts.add(orderProduct1);
-			orderProducts.add(orderProduct2);
+			OrderProduct p1 = new OrderProduct("spoon", 10.0, 3);
+			OrderProduct p2 = new OrderProduct("fridge", 1000.0, 1);
+			orderProducts.add(p1);
+			orderProducts.add(p2);
 
-			OrderProduct orderProduct3= new OrderProduct("Vacuumh", 75.0, 3);
-			OrderProduct orderProduct4 = new OrderProduct("Washing Machine2", 250.0, 1);
+			CustomerOrder o1 = new CustomerOrder(orderProducts);
 
-			List<OrderProduct> orderProducts2 = new ArrayList<>();
-			orderProducts2.add(orderProduct3);
-			orderProducts2.add(orderProduct4);
-
-			CustomerOrder customerOrder = new CustomerOrder(orderProducts);
-			CustomerOrder customerOrder1 = new CustomerOrder(orderProducts2);
-
-
-			orderRepository.save(customerOrder);
-			orderRepository.save(customerOrder1);
+			Gson gsonBuilder = new GsonBuilder().create();
+			String jsonFromPojo = gsonBuilder.toJson(o1);
+			System.out.println(jsonFromPojo);
 
 
 			for (Product product : repository.findAll()) {

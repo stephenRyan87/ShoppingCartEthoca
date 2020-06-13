@@ -4,11 +4,11 @@ import com.shoppingcart.ShoppingCart.entity.Product;
 
 import java.util.List;
 
-public class ProductCollection {
+public class ProductCollectionDTO {
 
     private List<Product> productList;
 
-    public ProductCollection(List<Product> productList){
+    public ProductCollectionDTO(List<Product> productList){
         this.productList = productList;
     }
 

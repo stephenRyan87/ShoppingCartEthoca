@@ -3,8 +3,10 @@ package com.shoppingcart.ShoppingCart.rest;
 import com.shoppingcart.ShoppingCart.entity.CustomerOrder;
 import com.shoppingcart.ShoppingCart.service.OrderService;
 import com.shoppingcart.ShoppingCart.service.ProductService;
-import dto.ProductCollection;
+import dto.CustomerOrderDTO;
+import dto.ProductCollectionDTO;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,15 +24,15 @@ public class ShoppingCartController {
     }
 
     @GetMapping("/products")
-    public ResponseEntity<ProductCollection> getAllProducts() {
-        ProductCollection products = productService.getAllProducts();
-        return new ResponseEntity<ProductCollection>(products, HttpStatus.OK);
+    public ResponseEntity<ProductCollectionDTO> getAllProducts() {
+        ProductCollectionDTO products = productService.getAllProducts();
+        return new ResponseEntity<ProductCollectionDTO>(products, HttpStatus.OK);
     }
 
-    @PostMapping(path = "/order")
+    @PostMapping(path = "/orders", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public void createOrder(@RequestBody CustomerOrder customerOrder) {
-        orderService.saveOrder(customerOrder);
+    public void createOrder(@RequestBody CustomerOrderDTO customerOrderDTO) {
+        orderService.saveOrder(customerOrderDTO);
     }
 
 
