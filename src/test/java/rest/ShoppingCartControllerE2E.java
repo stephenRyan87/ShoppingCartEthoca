@@ -47,6 +47,7 @@ public class ShoppingCartControllerE2E {
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.productList").exists());
+                .andExpect(MockMvcResultMatchers.jsonPath("$.productList").exists())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.productList[*].name").isNotEmpty());;
     }
 }

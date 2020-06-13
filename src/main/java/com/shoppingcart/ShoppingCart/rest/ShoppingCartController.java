@@ -1,6 +1,5 @@
 package com.shoppingcart.ShoppingCart.rest;
 
-import com.shoppingcart.ShoppingCart.entity.CustomerOrder;
 import com.shoppingcart.ShoppingCart.service.OrderService;
 import com.shoppingcart.ShoppingCart.service.ProductService;
 import dto.CustomerOrderDTO;
@@ -34,6 +33,4 @@ public class ShoppingCartController {
     public void createOrder(@RequestBody CustomerOrderDTO customerOrderDTO) {
         orderService.saveOrder(customerOrderDTO);
     }
-
-
 }
