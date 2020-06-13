@@ -8,7 +8,7 @@ import java.util.List;
 public class CustomerOrder {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ElementCollection
@@ -18,18 +18,14 @@ public class CustomerOrder {
 
     private double totalPrice;
 
+    private int noOfItemsInOrder;
+
     public CustomerOrder() {}
 
     public CustomerOrder(List<OrderProduct> orderProducts){
         this.orderProducts = orderProducts;
         this.totalPrice = calculateTotalPrice(orderProducts);
-    }
-
-    private double calculateTotalPrice(List<OrderProduct> orderProducts) {
-         double price = orderProducts.stream()
-                 .mapToDouble(op -> (op.getPrice() * op.getQuantity())).sum();
-
-        return price;
+        this.noOfItemsInOrder = calculateNoOfItems(orderProducts);
     }
 
     public List<OrderProduct> getOrderProducts() {
@@ -46,6 +42,17 @@ public class CustomerOrder {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    @Transient
+    private int calculateNoOfItems(List<OrderProduct> orderProducts) {
+        return orderProducts.stream().mapToInt(OrderProduct::getQuantity).sum();
+    }
+
+    @Transient
+    private double calculateTotalPrice(List<OrderProduct> orderProducts) {
+        return orderProducts.stream()
+                .mapToDouble(op -> (op.getPrice() * op.getQuantity())).sum();
     }
 
 }

@@ -6,9 +6,7 @@ import javax.persistence.Embeddable;
 public class OrderProduct {
 
     private String name;
-
     private Double price;
-
     private int quantity;
 
     public OrderProduct() {}
