@@ -2,8 +2,8 @@ package com.shoppingcart.ShoppingCart.rest;
 
 import com.shoppingcart.ShoppingCart.service.OrderService;
 import com.shoppingcart.ShoppingCart.service.ProductService;
-import dto.CustomerOrderDTO;
-import dto.ProductCollectionDTO;
+import com.shoppingcart.ShoppingCart.dto.CustomerOrderDTO;
+import com.shoppingcart.ShoppingCart.dto.ProductCollectionDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

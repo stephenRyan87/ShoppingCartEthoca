@@ -1,4 +1,4 @@
-package rest;
+package com.shoppingcart.ShoppingCart.rest;
 
 import com.shoppingcart.ShoppingCart.ShoppingCartApplication;
 import org.junit.Test;

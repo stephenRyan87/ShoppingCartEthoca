@@ -1,4 +1,4 @@
-package dto;
+package com.shoppingcart.ShoppingCart.dto;
 
 import com.shoppingcart.ShoppingCart.entity.Product;
 

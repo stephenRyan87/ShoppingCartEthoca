@@ -1,9 +1,8 @@
-package rest;
+package com.shoppingcart.ShoppingCart.rest;
 
-import com.shoppingcart.ShoppingCart.rest.ShoppingCartController;
 import com.shoppingcart.ShoppingCart.service.OrderService;
 import com.shoppingcart.ShoppingCart.service.ProductService;
-import dto.CustomerOrderDTO;
+import com.shoppingcart.ShoppingCart.dto.CustomerOrderDTO;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,15 +30,22 @@ public class ShoppingCartControllerTest {
 
     @Test
     public void getAllProductsCallsProductService() {
+        //Invocation
         shoppingCartController.getAllProducts();
+
+        //Assertion
         Mockito.verify(productService, Mockito.times(1)).getAllProducts();
     }
 
     @Test
     public void createOrderCallsOrderService() {
+        //Given
         CustomerOrderDTO co = new CustomerOrderDTO();
+
+        //Invocation
         shoppingCartController.createOrder(co);
 
+        //Assertion
         Mockito.verify(orderService, Mockito.times(1)).saveOrder(co);
     }
 }
