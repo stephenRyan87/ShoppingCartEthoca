@@ -5,7 +5,7 @@ import {Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable()
-export class EcommerceService {
+export class StoreFrontService {
   private productsUrl = "/cart/products";
   private ordersUrl = "/cart/orders";
 
