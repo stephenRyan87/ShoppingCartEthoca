@@ -24,8 +24,8 @@ public class ShoppingCartApplication {
 	@Bean
 	public CommandLineRunner demo(ProductRepository repository, OrderRepository orderRepository) {
 		return (args) -> {
-			repository.save(new Product("Vacuum", 70.0));
-			repository.save(new Product("spoon", 5.0));
+			repository.save(new Product("Vacuum", 7.0));
+			repository.save(new Product("spoon", 500.0));
 
 			for (Product product : repository.findAll()) {
 				log.info("The product is: " + product.toString());

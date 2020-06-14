@@ -39,8 +39,7 @@ public class ShoppingCartControllerE2E {
     }
 
     @Test
-    public void shouldGetProducts() throws Exception
-    {
+    public void shouldGetProducts() throws Exception {
         mockMvc.perform(
                 MockMvcRequestBuilders
                 .get("/cart/products")
