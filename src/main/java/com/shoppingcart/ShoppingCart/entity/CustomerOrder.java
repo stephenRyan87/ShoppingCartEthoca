@@ -44,12 +44,11 @@ public class CustomerOrder {
         this.totalPrice = totalPrice;
     }
 
-    @Transient
+
     private int calculateNoOfItems(List<OrderProduct> orderProducts) {
         return orderProducts.stream().mapToInt(OrderProduct::getQuantity).sum();
     }
 
-    @Transient
     private double calculateTotalPrice(List<OrderProduct> orderProducts) {
         return orderProducts.stream()
                 .mapToDouble(op -> (op.getPrice() * op.getQuantity())).sum();
