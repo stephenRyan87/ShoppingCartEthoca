@@ -1,2 +1,2 @@
-# ShoppingCartEthoca
+# ShoppingCartEthoca WIP
 E/Commerce Project
