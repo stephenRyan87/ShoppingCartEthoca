@@ -20,7 +20,7 @@ public class CustomerOrder {
 
     private int noOfItemsInOrder;
 
-    public CustomerOrder() {}
+    protected CustomerOrder() {}
 
     public CustomerOrder(List<OrderProduct> orderProducts){
         this.orderProducts = orderProducts;

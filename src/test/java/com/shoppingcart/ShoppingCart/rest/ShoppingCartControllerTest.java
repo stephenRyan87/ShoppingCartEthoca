@@ -1,5 +1,6 @@
 package com.shoppingcart.ShoppingCart.rest;
 
+import com.shoppingcart.ShoppingCart.entity.OrderProduct;
 import com.shoppingcart.ShoppingCart.service.OrderService;
 import com.shoppingcart.ShoppingCart.service.ProductService;
 import com.shoppingcart.ShoppingCart.dto.CustomerOrderDTO;
@@ -10,6 +11,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ShoppingCartControllerTest {
@@ -40,7 +44,10 @@ public class ShoppingCartControllerTest {
     @Test
     public void createOrderCallsOrderService() {
         //Given
-        CustomerOrderDTO co = new CustomerOrderDTO();
+        OrderProduct op = new OrderProduct("egg", 5.0, 5);
+        List<OrderProduct> opList = new ArrayList<>();
+        opList.add(op);
+        CustomerOrderDTO co = new CustomerOrderDTO(opList);
 
         //Invocation
         shoppingCartController.createOrder(co);

@@ -13,7 +13,7 @@ public class Product {
 
     private Double price;
 
-    public Product() {}
+    protected Product() {}
 
     public Product(String name, Double price){
         this.name = name;

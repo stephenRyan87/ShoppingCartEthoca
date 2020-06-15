@@ -8,7 +8,7 @@ public class CustomerOrderDTO {
 
     private List<OrderProduct> orderProducts;
 
-    public CustomerOrderDTO() {}
+    protected CustomerOrderDTO() {}
 
     public CustomerOrderDTO(List<OrderProduct> orderProducts){
         this.orderProducts = orderProducts;

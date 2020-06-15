@@ -9,7 +9,7 @@ public class OrderProduct {
     private Double price;
     private int quantity;
 
-    public OrderProduct() {}
+    protected OrderProduct() {}
 
     public OrderProduct(String name, Double price, int quantity){
         this.name = name;

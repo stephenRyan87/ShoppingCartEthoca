@@ -8,6 +8,8 @@ public class ProductCollectionDTO {
 
     private List<Product> productList;
 
+    protected ProductCollectionDTO() {};
+
     public ProductCollectionDTO(List<Product> productList){
         this.productList = productList;
     }
